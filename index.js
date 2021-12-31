@@ -6,8 +6,60 @@ const {
     GroupSettingChange
 } = require('@adiwajshing/baileys')
 const { color, bgcolor } = require('./lib/color')
-const { help } = require('./src/help')
-const { menuadmin } = require('./src/menuadmin')
+const {
+	admin
+} = require('./src/admin')
+const {
+	anime
+} = require('./src/anime')
+const {
+	downloader
+} = require('./src/downloader')
+const {
+	education
+} = require('./src/education')
+const {
+	fun
+} = require('./src/fun')
+const {
+	getafk
+} = require('./src/getafk')
+const {
+	getfig
+} = require('./src/getfig')
+const {
+	imgmkr
+} = require('./src/imgmkr')
+const {
+	lgmkr
+} = require('./src/lgmkr')
+const {
+	memes
+} = require('./src/memes')
+const {
+	menu
+} = require('./src/menu')
+const {
+	music
+} = require('./src/music')
+const {
+	other
+} = require('./src/other')
+const {
+	pacific
+} = require('./src/pacific')
+const {
+	prfl
+} = require('./src/prfl')
+const {
+	quests
+} = require('./src/quests')
+const {
+	search
+} = require('./src/search')
+const {
+	therjyer
+} = require('./src/therjyer')
 const { shalom } = require('./src/shalom')
 const { mensagem } = require('./src/mensagem')
 const { sayday } = require('./src/sayday')
@@ -189,22 +241,22 @@ async function starts() {
 			const isCmd = body.startsWith(prefix)
 
 			mess = {
-				wait: 'Carregando o Mixxtério ⌛',
+				wait: 'Carregando ⌛',
 				success: 'Sucesso ✔️',
-				levelon: '*Habilitar Level* ✔️',
-				leveloff: '*Desabilitar Level* ❌',
-				levelnoton: '*Level não ativo* ❌',
-				levelnol: '*Mas bem kkkkk level* 0 ',
+				levelon: '*O sistema de level foi habilitado* ✔️',
+				leveloff: '*O sistema de level for desabilitado* ❌',
+				levelnoton: '*O sistema de level ainda não foi ativo* ❌',
+				levelnol: '*Level 0*',
 				error: {
-					stick: 'Ih, consegui fazer essa não. ❌\nMas tente de novo 😅',
-					Iv: ' O link que você me forneceu é inválido, vaso ❌'
+					stick: 'Ocorreu um erro. ❌\nTente novamente.',
+					Iv: 'O link fornecido é inválido ❌'
 				},
 				only: {
-					group: 'Só vou usar esse comando, quando eu estiver em um grupo 🤡',
-					ownerG: 'Se empolga não, esse comando é só para o dono do grupo 😏',
-					ownerB: 'Se empolga não, esse comando é só para o dono do bot 😏',
-					admin: 'Se empolga não, esse comando só pode ser usado pelos administradores do grupo 😎🤙',
-					Badmin: 'Xiii, sou administradora não, posso fazer nada 🤷‍♀️'
+					group: 'Acesso negado, comando de grupo ❌',
+					ownerG: 'Acesso negado, você não é o dono do grupo ❌',
+					ownerB: 'Acesso negado, você não é o dono do Neon ❌',
+					admin: 'Acesso negado, você não é um administrador ❌',
+					Badmin: 'Acesso negado, Neon não é um administrador ❌'
 				}
 			}
 
@@ -305,18 +357,60 @@ async function starts() {
 
 			}
 			switch(command) {
-				case 'ajuda':
-				case 'comandos':
-				case 'help':
-				case 'menu':
-					client.sendMessage(from, help(prefix), text)
-					break
-				case 'menuadm':
-				case 'admmenu':
-				case 'admhelp':
-				case 'helpadm':
-					client.sendMessage(from, menuadmin(prefix), text)
-					break
+				case 'adm': case 'admin':
+					client.sendMessage(from, admin(prefix, sender), text, {quoted: mek})
+				break
+				case 'anime':
+					client.sendMessage(from, anime(prefix, sender), text, {quoted: mek})
+				break
+				case 'dl': case 'downloader':
+					client.sendMessage(from, downloader(prefix, sender), text, {quoted: mek})
+				break
+				case 'edu': case 'education':
+					client.sendMessage(from, education(prefix, sender), text, {quoted: mek})
+				break
+				case 'fun':
+					client.sendMessage(from, fun(prefix, sender), text, {quoted: mek})
+				break
+				case 'getafk':
+					client.sendMessage(from, getafk(prefix, sender), text, {quoted: mek})
+				break
+				case 'getfig':
+					client.sendMessage(from, getfig(prefix, sender), text, {quoted: mek})
+				break
+				case 'imgmkr':
+					client.sendMessage(from, imgmkr(prefix, sender), text, {quoted: mek})
+				break
+				case 'lgmkr':
+					client.sendMessage(from, lgmkr(prefix, sender), text, {quoted: mek})
+				break
+				case 'memes':
+					client.sendMessage(from, memes(prefix, sender), text, {quoted: mek})
+				break
+				case 'ajuda': case 'comandos': case 'help': case 'menu':
+					client.sendMessage(from, menu(prefix, sender), text, {quoted: mek})
+				break
+				case 'msc': case 'music':
+					client.sendMessage(from, music(prefix, sender), text, {quoted: mek})
+				break
+				case 'other':
+					client.sendMessage(from, other(prefix, sender), text, {quoted: mek})
+				break
+				case 'pacific':
+					client.sendMessage(from, pacific(prefix, sender), text, {quoted: mek})
+				break
+				case 'prfl': case 'perfil': case 'profile':
+					client.sendMessage(from, prfl(prefix, sender), text, {quoted: mek})
+				break
+				case 'quests':
+					client.sendMessage(from, quests(prefix, sender), text, {quoted: mek})
+				break
+				case 'srch': case 'search': case 'google': case 'buscar': case 'buscador':
+					client.sendMessage(from, search(prefix, sender), text, {quoted: mek})
+				break
+				case 'therjyer':
+					client.sendMessage(from, therjyer(prefix, sender), text, {quoted: mek})
+				break
 				case 'info':
 					me = client.user
 					uptime = process.uptime()
