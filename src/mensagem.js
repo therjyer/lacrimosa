@@ -1,5 +1,5 @@
 const mensagem = (prefix, pushname) => {
-	return `*Oi BB*`
+	return `*Do que precisas?*`
 }
 
 exports.mensagem = mensagem
